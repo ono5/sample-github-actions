@@ -11,10 +11,17 @@ jobs:
         run: |
           node -v
           npm -v
-      # Pythonを指定
       - name: python Command
         run: |
           import platform
           print(platform.processor())
         shell: python
-
+  # Windows
+  run-windows-commands:
+    runs-on: windows-latest
+    steps:
+      - name: Directory PowerShell
+        run: Get-Location
+      - name: Directory Bash
+        run: pwd
+        shell: bash
