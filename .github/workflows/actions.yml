@@ -1,0 +1,21 @@
+name: Actions Workflow
+
+on: [push]
+
+jobs:
+  run-github-actions:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Simple JS Action
+        id: greet
+        # Actionを利用する
+        # https://github.com/actions/hello-world-javascript-action
+        # -> actions/hello-world-javascript-action@ブランチ名 or タグ名 or commmit ID
+        # uses: actions/hello-world-javascript-action@master
+        uses: actions/hello-world-javascript-action@v1
+        # Inputを指定
+        with:
+          # README.mdに記載されていたinput変数(who-to-greet)とinput値(Selfnote)
+          who-to-greet: Selfnote
+      - name: Log Greeting Time
+        run: echo "${{ steps.greet.outputs.time }}"
