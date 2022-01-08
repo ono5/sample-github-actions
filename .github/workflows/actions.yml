@@ -18,8 +18,8 @@ jobs:
           echo "${{ github.token }}"
 
           # 環境変数を利用してのgit操作
-          git clone git@github:$GITHUB_REPOSITORY
-          git checkout $GITHUB_SHA
+          # git clone git@github:$GITHUB_REPOSITORY
+          # git checkout $GITHUB_SHA
       - name: checkout
         uses: actions/checkout@v1
       - name: List Files After Checkout
